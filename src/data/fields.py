@@ -75,7 +75,7 @@ class PatchPointsField(Field):
                 occupancies = np.unpackbits(occupancies)[:points.shape[0]]
             occupancies = occupancies.astype(np.float32)
         else:
-            occupancies = np.zeros(points.shape[0]).astype(np.float32)
+            occupancies = np.ones(points.shape[0]).astype(np.float32)
 
         # acquire the crop
         ind_list = []
@@ -144,7 +144,7 @@ class PointsField(Field):
                 occupancies = np.unpackbits(occupancies)[:points.shape[0]]
             occupancies = occupancies.astype(np.float32)
         else:
-            occupancies = np.zeros(points.shape[0]).astype(np.float32)
+            occupancies = np.ones(points.shape[0]).astype(np.float32)
 
         data = {
             None: points,
