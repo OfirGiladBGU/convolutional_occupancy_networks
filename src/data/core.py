@@ -94,7 +94,7 @@ class Shapes3dDataset(data.Dataset):
                 split_file = os.path.join(subpath, split + '.lst')
                 with open(split_file, 'r') as f:
                     models_c = f.read().split('\n')
-                
+                # print("C MODELS:", models_c)
                 if '' in models_c:
                     models_c.remove('')
 
@@ -150,18 +150,22 @@ class Shapes3dDataset(data.Dataset):
             info = c_idx
         
         for field_name, field in self.fields.items():
-            try:
-                field_data = field.load(model_path, idx, info)
-            except Exception:
-                if self.no_except:
-                    logger.warn(
-                        'Error occured when loading field %s of model %s'
-                        % (field_name, model)
-                    )
-                    return None
-                else:
-                    raise
+            # try:
+            #     field_data = field.load(model_path, idx, info)
+            # except Exception:
+            #     if self.no_except:
+            #         logger.warn(
+            #             'Error occured when loading field %s of model %s'
+            #             % (field_name, model)
+            #         )
+            #         return None
+            #     else:
+            #         raise
 
+            # print("Loading field:", field_name, "from model:", model)
+            if field_name == "voxels":
+                continue
+            field_data = field.load(model_path, idx, info)
             if isinstance(field_data, dict):
                 for k, v in field_data.items():
                     if k is None:
@@ -195,6 +199,7 @@ class Shapes3dDataset(data.Dataset):
             file_path = os.path.join(model_path, field_name, '%s_%02d.npz' % (field_name, num))
         
         points_dict = np.load(file_path)
+        # print("POINTS DICT:", points_dict['points'])
         p = points_dict['points']
         if self.split == 'train':
             # randomly sample a point as the center of input/query volume

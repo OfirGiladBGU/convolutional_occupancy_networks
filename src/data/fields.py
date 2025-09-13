@@ -69,10 +69,13 @@ class PatchPointsField(Field):
             points = points.astype(np.float32)
             points += 1e-4 * np.random.randn(*points.shape)
 
-        occupancies = points_dict['occupancies']
-        if self.unpackbits:
-            occupancies = np.unpackbits(occupancies)[:points.shape[0]]
-        occupancies = occupancies.astype(np.float32)
+        if "occupancies" in points_dict:
+            occupancies = points_dict['occupancies']
+            if self.unpackbits:
+                occupancies = np.unpackbits(occupancies)[:points.shape[0]]
+            occupancies = occupancies.astype(np.float32)
+        else:
+            occupancies = np.zeros(points.shape[0]).astype(np.float32)
 
         # acquire the crop
         ind_list = []
@@ -135,10 +138,13 @@ class PointsField(Field):
             points = points.astype(np.float32)
             points += 1e-4 * np.random.randn(*points.shape)
 
-        occupancies = points_dict['occupancies']
-        if self.unpackbits:
-            occupancies = np.unpackbits(occupancies)[:points.shape[0]]
-        occupancies = occupancies.astype(np.float32)
+        if "occupancies" in points_dict:
+            occupancies = points_dict['occupancies']
+            if self.unpackbits:
+                occupancies = np.unpackbits(occupancies)[:points.shape[0]]
+            occupancies = occupancies.astype(np.float32)
+        else:
+            occupancies = np.zeros(points.shape[0]).astype(np.float32)
 
         data = {
             None: points,

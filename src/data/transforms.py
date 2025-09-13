@@ -77,11 +77,18 @@ class SubsamplePoints(object):
 
         data_out = data.copy()
         if isinstance(self.N, int):
-            idx = np.random.randint(points.shape[0], size=self.N)
-            data_out.update({
-                None: points[idx, :],
-                'occ':  occ[idx],
-            })
+            # print("SHAPE:", points.shape[0], "SUBSAMPLE TO:", self.N)
+            if points.shape[0] >= self.N:
+                idx = np.random.randint(points.shape[0], size=self.N)
+                data_out.update({
+                    None: points[idx, :],
+                    'occ':  occ[idx],
+                })
+            else:
+                data_out.update({
+                    None: points,
+                    'occ':  occ,
+                })
         else:
             Nt_out, Nt_in = self.N
             occ_binary = (occ >= 0.5)
