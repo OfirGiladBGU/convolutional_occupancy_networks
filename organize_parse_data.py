@@ -11,7 +11,7 @@ parse_dir = '/home/ofirgila/PycharmProjects/convolutional_occupancy_networks/dat
 test_lst_path = os.path.join(parse_dir, 'test.lst')
 
 # Get all files in src_dir
-files = [f for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f))]
+files = sorted([f for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f))])
 
 # Prepare to append to test.lst
 with open(test_lst_path, 'a') as test_lst:
