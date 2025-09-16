@@ -5,7 +5,7 @@ data:
   path: data/parse
   pointcloud_n: 200000
   pointcloud_noise: 0.0
-  pointcloud_file: vessel.nii.npz
+  pointcloud_file: PA000005_vessel.nii.npz
   voxels_file: null
   points_file: null
   points_iou_file: null
