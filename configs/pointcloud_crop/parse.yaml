@@ -2,7 +2,8 @@ inherit_from: configs/pointcloud_crop/room_grid64.yaml
 data:
   input_type: pointcloud_crop
   classes: ['']
-  path: data/parse
+  # path: data/parse_labels
+  path: data/parse_preds_fixed
   pointcloud_n: 200000
   pointcloud_noise: 0.0
   pointcloud_file: vessel.nii.npz
