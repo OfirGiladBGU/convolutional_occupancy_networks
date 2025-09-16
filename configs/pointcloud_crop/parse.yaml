@@ -14,7 +14,8 @@ data:
   unit_size: 1.0 # define the size of a voxel, in meter
   query_vol_size: 90 # query crop in voxel
 training:
-  out_dir: out/parse
+  # out_dir: out/parse_labels
+  out_dir: out/parse_preds_fixed
 test:
   model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/convolutional_occupancy_networks/models/pointcloud_crop/room_grid64.pt
 generation:
