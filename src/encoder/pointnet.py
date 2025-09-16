@@ -305,8 +305,7 @@ class PatchLocalPoolPointnet(nn.Module):
         fea = {}
         # print("INDEX:", index, "C:", c)
         if 'grid' in self.plane_type:
-            # fea['grid'] = self.generate_grid_features(index['grid'], c)
-            fea['grid'] = self.generate_grid_features(index['g'], c)
+            fea['grid'] = self.generate_grid_features(index['grid'], c)
         if 'xz' in self.plane_type:
             fea['xz'] = self.generate_plane_features(index['xz'], c)
         if 'xy' in self.plane_type:

@@ -165,8 +165,7 @@ class PatchLocalDecoder(nn.Module):
             plane_type = list(c_plane.keys())
             c = 0
             if 'grid' in plane_type:
-                # c += self.sample_feature(p_n['grid'], c_plane['grid'], fea_type='3d')
-                c += self.sample_feature(p_n['g'], c_plane['grid'], fea_type='3d')
+                c += self.sample_feature(p_n['grid'], c_plane['grid'], fea_type='3d')
             if 'xz' in plane_type:
                 c += self.sample_feature(p_n['xz'], c_plane['xz'])
             if 'xy' in plane_type:
