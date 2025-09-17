@@ -2,11 +2,11 @@ import os
 import shutil
 
 # Paths
-# src_dir = '/home/ofirgila/PycharmProjects/convolutional_occupancy_networks/data/parse_labels/originals'
-# parse_dir = '/home/ofirgila/PycharmProjects/convolutional_occupancy_networks/data/parse_labels'
+# src_dir = './data/parse_labels/originals'
+# parse_dir = './data/parse_labels'
 
-src_dir = '/home/ofirgila/PycharmProjects/convolutional_occupancy_networks/data/parse_preds_fixed/originals'
-parse_dir = '/home/ofirgila/PycharmProjects/convolutional_occupancy_networks/data/parse_preds_fixed'
+src_dir = './data/parse_preds_fixed/originals'
+parse_dir = './data/parse_preds_fixed'
 
 test_lst_path = os.path.join(parse_dir, 'test.lst')
 
